@@ -114,13 +114,13 @@
   <dd>
 
   <!--REFACTORED HERE go to app/models/movie director method -->
-    <% the_director = @the_movie.director.name %>
 
-    <% if the_director != nil %>
-      <%= the_director %>
-    <% else %>
-      Uh oh! We weren't able to find a director for this movie.
-    <% end %>
+  
+    <% if @the_movie.director.present? && @the_movie.director.name.present? %>
+          <%= @the_movie.director.name %>
+        <% else %>
+          Uh oh! We weren't able to find a director for this movie.
+        <% end %>
   </dd>
 
   <dt>

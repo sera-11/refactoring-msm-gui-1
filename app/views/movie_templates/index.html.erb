@@ -87,40 +87,36 @@
   </tr>
 
   <% @list_of_movies.each do |movie| %>
-  <tr>
-    <td>
-      <%= movie.id %>
-    </td>
+    <tr>
+      <td>
+        <%= movie.id %>
+      </td>
 
-    <td>
-      <img src="<%= movie.image %>" style="width:250px;">
-    </td>
+      <td>
+        <img src="<%= movie.image %>" style="width:250px;">
+      </td>
 
-    <td>
-      <%= movie.title %>
-    </td>
+      <td>
+        <%= movie.title %>
+      </td>
 
-    <td>
-      <%= movie.year %>
-    </td>
+      <td>
+        <%= movie.year %>
+      </td>
 
-    <td>
-      
+      <td>
+        <% if movie.director.present? && movie.director.name.present? %>
+          <%= movie.director.name %>
+        <% else %>
+          Uh oh! We weren't able to find a director for this movie.
+        <% end %>
+      </td>
 
-      <% the_director = movie.director.name %>
-
-      <% if the_director != nil %>
-        <%= the_director %>
-      <% else %>
-        Uh oh! We weren't able to find a director for this movie.
-      <% end %>
-    </td>
-
-    <td>
-      <a href="/movies/<%= movie.id %>">
-        Show details
-      </a>
-    </td>
-  </tr>
+      <td>
+        <a href="/movies/<%= movie.id %>">
+          Show details
+        </a>
+      </td>
+    </tr>
   <% end %>
 </table>
