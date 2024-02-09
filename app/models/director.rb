@@ -21,3 +21,17 @@ class Director < ApplicationRecord
 
   end
 end
+
+# Three 1 to Many associations
+# - Director => Movie 
+# - Movie => Character
+# - Actor => Character
+#
+# Try define
+#  [X]   Director#filmography
+#  [X]   Movie#director
+#  [X]   Movie#characters
+#  [X]   Character#movie
+#  []   Actor#characters  
+#  [X]   Character#actor
+#
